@@ -33,5 +33,14 @@ RSpec.describe "As a registered user", :js => :true do
       expect(page).to have_content("Invalid Link")
       expect(page).not_to have_content("www.google.com")
     end
+
+    it "I see my links and not other user links" do 
+      @user2 = User.create(email: "APRIL", password: "RULES")
+      link1 = @user.links.create(url: "https://www.google.com", title: "search")
+      link2 = @user2.links.create(url: "https://www.yahoo.com", title: "party")
+      visit root_path
+      expect(page).to have_content("search")
+      expect(page).not_to have_content("party")
+    end
   end
 end
