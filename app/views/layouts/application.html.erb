@@ -8,6 +8,9 @@
 </head>
 <body>
 <div class="container">
+  <% if current_user %>
+    <%= link_to "Sign Out", session_path(current_user), method: :DELETE %>
+  <% end %>
   <%= yield %>
 </div>
 
