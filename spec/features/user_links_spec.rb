@@ -26,12 +26,12 @@ RSpec.describe "As a registered user", :js => :true do
 
     it "I cannot save an invalid link" do 
       visit root_path
-      fill_in "link[url]", with: "https://www.google.com"
+      fill_in "link[url]", with: "www.google.com"
       fill_in "link[title]", with: "search"
       click_on "Submit"
       expect(current_path).to eq(root_path)
       expect(page).to have_content("Invalid Link")
-      expect(page).not_to have_content("https://www.google.com")
+      expect(page).not_to have_content("www.google.com")
     end
   end
 end
