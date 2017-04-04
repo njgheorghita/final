@@ -1,1 +1,19 @@
-<h1> hey <%= current_user.email %></h1>
+<h1> hey <%= current_user.email %> </h1>
+<h2> create a link </h2>
+<%= form_for @link do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url %> 
+  <br>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.submit "Submit" %>
+  <br>
+<% end %>
+<h2> all links </h2>
+<% @links.each do |link| %>
+  title: <%= link.title %> <br> 
+  url: <%= link.url %> <br>
+  status: <%= link.read %> <br> 
+  <br>
+<% end %>

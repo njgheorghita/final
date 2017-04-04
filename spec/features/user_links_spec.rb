@@ -9,8 +9,8 @@ RSpec.describe "As a registered user", :js => :true do
 
     it "I see a form to submit a link" do 
       visit root_path
-      expect(page).to have_field("url")
-      expect(page).to have_field("title")
+      expect(page).to have_field("Url")
+      expect(page).to have_field("Title")
     end
 
     it "I save a link" do 
@@ -24,7 +24,7 @@ RSpec.describe "As a registered user", :js => :true do
       expect(page).to have_content("status: false")
     end
 
-    xit "I cannot save an invalid link" do 
+    it "I cannot save an invalid link" do 
       visit root_path
       fill_in "link[url]", with: "https://www.google.com"
       fill_in "link[title]", with: "search"
