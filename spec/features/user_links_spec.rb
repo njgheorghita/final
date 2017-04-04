@@ -7,8 +7,31 @@ RSpec.describe "As a registered user", :js => :true do
       page.set_rack_session(user_id: @user.id)
     end
 
-    it "I'll see a form to submit a link" do 
+    it "I see a form to submit a link" do 
+      visit root_path
+      expect(page).to have_field("url")
+      expect(page).to have_field("title")
+    end
 
+    it "I save a link" do 
+      visit root_path
+      fill_in "link[url]", with: "https://www.google.com"
+      fill_in "link[title]", with: "search"
+      click_on "Submit"
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content("url: https://www.google.com")
+      expect(page).to have_content("title: search")
+      expect(page).to have_content("status: false")
+    end
+
+    xit "I cannot save an invalid link" do 
+      visit root_path
+      fill_in "link[url]", with: "https://www.google.com"
+      fill_in "link[title]", with: "search"
+      click_on "Submit"
+      expect(current_path).to eq(root_path)
+      expect(page).to have_content("Invalid Link")
+      expect(page).not_to have_content("https://www.google.com")
     end
   end
 end
