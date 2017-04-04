@@ -1,0 +1,11 @@
+<h1> edit link </h1>
+<%= form_for @link do |f| %>
+  <%= f.label :url %>
+  <%= f.text_field :url, value: @link.url %> 
+  <br>
+  <%= f.label :title %>
+  <%= f.text_field :title, value: @link.title %>
+  <br>
+  <%= f.submit "Update" %>
+  <br>
+<% end %>
