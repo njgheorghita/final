@@ -11,6 +11,7 @@
   <% if current_user %>
     <%= link_to "Sign Out", session_path(current_user), method: :DELETE %>
   <% end %>
+  <%= render partial: "/layouts/flash" %>
   <%= yield %>
 </div>
 

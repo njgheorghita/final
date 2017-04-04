@@ -1,0 +1,4 @@
+<% flash.each do |name, msg| %>
+  <span class="sr-only">Message: </span><%= sanitize(msg, tags: %w(a), attributes: %w(href rel data-method)) %>
+  <br>
+<% end %>
