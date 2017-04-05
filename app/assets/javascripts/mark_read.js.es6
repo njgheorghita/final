@@ -33,11 +33,11 @@ function updateLink(e) {
   }
 }
 
-function makeAjaxCall() {
-  $.ajax({
-    type: 
-  })
-}
+// function makeAjaxCall() {
+//   $.ajax({
+//     type: 
+//   })
+// }
 
 function updateReadCss(link) {
   $('#link-' + link.id).children(".read-status").text("true")

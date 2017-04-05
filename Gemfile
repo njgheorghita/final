@@ -15,6 +15,7 @@ gem 'responders'
 gem 'awesome_print'
 gem 'sprockets-es6'
 gem 'bcrypt', '~> 3.1.7'
+gem 'validate_url'
 
 # gem 'unicorn'
 
@@ -37,5 +38,4 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'selenium-webdriver', '~> 2.53.4'
   gem 'rack_session_access'
-  gem 'validate_url'
 end

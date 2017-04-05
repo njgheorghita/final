@@ -27,13 +27,12 @@ RSpec.describe "As a registered user", :js => :true do
     it "I can mark a link as read || unread" do 
       visit root_path
       expect(page).to have_content("status: false")
-      expect(page).to have_link("Mark as Read")
+      expect(page).to have_content("Mark as Read")
       click_on "Mark as Read"
       expect(current_path).to eq(root_path)
       expect(page).to have_content("status: true")
       expect(page).to have_link("Mark as Unread")
       click_on "Mark as Unread"
-      expect(current_path).to eq(root_path)
       expect(page).to have_content("status: false")
       expect(page).to have_link("Mark as Read")
     end
