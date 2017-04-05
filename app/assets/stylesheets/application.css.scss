@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+
+.read {
+  text-decoration: line-through;
+}
+
+.unread {
+  text-decoration: none;
+}

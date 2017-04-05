@@ -1,23 +1,54 @@
 $( document ).ready(function(){
-  $("body").on("click", ".mark-as-read", markAsRead)
+  $("body").on("click", ".mark-as-read", updateLink)
 })
 
-function markAsRead(e) {
+function updateLink(e) {
   e.preventDefault();
+  
+  var $link = $(this).parent();
+  var linkReadStatus = ($link.children('.read-status').text() == 'true')
 
-  var $link = $(this).parents('.link');
-  var linkId = $link.data('link-id');
+  if (linkReadStatus == true) {
+    var linkId = parseInt($link.children('.link-id').text());
+    var linkTitle = $link.children('.link-title').text();
+    var linkUrl =  $link.children('.link-url').text();
 
-  $.ajax({
-    type: "PATCH",
-    url: "/api/v1/links/" + linkId,
-    data: { read: true },
-  }).then(updateLinkStatus)
-    .fail(displayFailure);
+    $.ajax({
+      type: "PATCH",
+      url: "/api/v1/links/" + linkId,
+      data: { title: linkTitle, url: linkUrl, read: false },
+    }).then(updateUnreadCss)
+      .fail(displayFailure);
+  } else {
+    var linkId = parseInt($link.children('.link-id').text());
+    var linkTitle = $link.children('.link-title').text();
+    var linkUrl =  $link.children('.link-url').text();
+
+    $.ajax({
+      type: "PATCH",
+      url: "/api/v1/links/" + linkId,
+      data: { title: linkTitle, url: linkUrl, read: true },
+    }).then(updateReadCss)
+      .fail(displayFailure);
+  }
 }
 
-function updateLinkStatus(link) {
-  $(`.link[data-link-id=${link.id}]`).find(".read-status").text(link.read);
+// function makeAjaxCall() {
+//   $.ajax({
+//     type: 
+//   })
+// }
+
+function updateReadCss(link) {
+  $('#link-' + link.id).children(".read-status").text("true")
+  $('#link-' + link.id).children(".mark-as-read").text("Mark as Unread")
+  $('#link-' + link.id).css({"text-decoration":"line-through"})
+}
+
+function updateUnreadCss(link) {
+  $('#link-' + link.id).children(".read-status").text("false")
+  $('#link-' + link.id).children(".mark-as-read").text("Mark as Read")
+  $('#link-' + link.id).css({"text-decoration":"none"})
 }
 
 function displayFailure(failureData){
