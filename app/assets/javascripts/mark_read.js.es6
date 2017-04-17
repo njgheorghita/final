@@ -26,7 +26,8 @@ function updateLink(e) {
 
     $.ajax({
       type: "POST",
-      url: "http://localhost:3000/api/v1/links",
+      // url: "http://localhost:3000/api/v1/links",
+      url: "https://sheltered-shore-41248.herokuapp.com/api/v1/links",
       data: { url: linkUrl }
     }).then();
 
