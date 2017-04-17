@@ -36,6 +36,13 @@ RSpec.describe "As a registered user", :js => :true do
       expect(page).to have_content("status: false")
       expect(page).to have_link("Mark as Read")
     end
+
+    # it "I can filter through my lists" do 
+    #   visit root_path
+    #   expect(page).to have_content("search")
+    #   fill_in "filter-input", with: "fdsa"
+    #   expect(page).not_to have_content("search")
+    # end
   end
 
   context "When I visit the home page" do

@@ -19,4 +19,36 @@ $('document').ready(function() {
     })
     .show();
   });
+
+  $("#show-read").on('click', function() {
+    var status = "true"
+    var allLists = $("#link-list").children();
+
+    allLists.hide();
+
+    allLists.filter(function(i,v) {
+      var $t = $(this).children('.read-status').text();
+      if ($t == status) {
+        return true;
+      }
+      return false;
+    })
+    .show();
+  })
+
+  $("#show-unread").on('click', function() {
+    var status = "false"
+    var allLists = $("#link-list").children();
+
+    allLists.hide();
+
+    allLists.filter(function(i,v) {
+      var $t = $(this).children('.read-status').text();
+      if ($t == status) {
+        return true;
+      }
+      return false;
+    })
+    .show();
+  })
 });
