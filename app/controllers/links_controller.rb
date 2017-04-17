@@ -9,11 +9,9 @@ class LinksController < ApplicationController
   def create
     link = current_user.links.new(link_params)
     if link.save
-      flash[:success] = "Link saved!"
-      redirect_to root_path
+      render partial: "link", locals: {link: link}
     else
-      flash[:danger] = "Invalid Link"
-      redirect_to root_path
+      render json: {status: 400}
     end
   end
 

@@ -19,17 +19,5 @@
 <br>
 <br>
 <div id="link-list">
-  <% @links.each do |link| %>
-    <div id= <%= "link-#{link.id}" %> class= <%= link.read ? "read" : "unread" %>  >
-      id: <span class="link-id"><%= link.id %></span><br>
-      <div class="filter-content">
-        title: <span class="link-title"><%= link.title %></span><br> 
-        url: <span class="link-url"><%= link.url %></span><br>
-      </div>
-      status: <span class="read-status"><%= link.read %></span><br> 
-      <button class="mark-as-read"><%= link.read ? "Mark as Unread" : "Mark as Read" %> </button><br>
-      <%= link_to "edit", edit_link_path(link) %><br>
-      <br>
-    </div>
-  <% end %>
+  <%= render partial: "/layouts/link", collection: @links %>
 </div>
