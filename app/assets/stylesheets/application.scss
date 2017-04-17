@@ -1,0 +1,26 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container {
+  text-align: center;
+}
+
+.read {
+  text-decoration: line-through;
+  border: 3px solid green;
+  border-radius: 10px;
+  margin: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.unread {
+  text-decoration: none;
+  border: 3px solid red;
+  border-radius: 10px;
+  margin: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,35 +1,27 @@
-<h1> hey <%= current_user.email %>!</h1>
-<h2> create a link </h2>
-<%= form_for @link do |f| %>
-  <%= f.label :url %>
-  <%= f.text_field :url %> 
-  <br>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.submit "Submit" %>
-  <br>
-<% end %>
-<h2> all links </h2>
-<div id="list-filter">
-  <label>Filter by Title / URL
-    <input>
-  </label>
-</div>
-<br>
-<br>
-<div id="link-list">
-  <% @links.each do |link| %>
-    <div id= <%= "link-#{link.id}" %> class= <%= link.read ? "read" : "unread" %>  >
-      id: <span class="link-id"><%= link.id %></span><br>
-      <div class="filter-content">
-        title: <span class="link-title"><%= link.title %></span><br> 
-        url: <span class="link-url"><%= link.url %></span><br>
-      </div>
-      status: <span class="read-status"><%= link.read %></span><br> 
-      <button class="mark-as-read"><%= link.read ? "Mark as Unread" : "Mark as Read" %> </button><br>
-      <%= link_to "edit", edit_link_path(link) %><br>
-      <br>
-    </div>
+ <div class="container"> 
+  <h1> hey <%= current_user.email %>!</h1>
+  <h2> create a link </h2>
+  <%= form_for @link do |f| %>
+    <%= f.label :url %>
+    <%= f.text_field :url %> 
+    <br>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.submit "Submit" %>
+    <br>
   <% end %>
+  <h2> all links </h2>
+  <div id="list-filter">
+    <button id="show-read">SHOW READ</button>
+    <button id="show-unread">SHOW UNREAD</button>
+    <label>Filter by Title / URL
+      <input id="filter-input">
+    </label>
+  </div>
+  <br>
+  <br>
+  <div id="link-list">
+    <%= render partial: "/layouts/link", collection: @links %>
+  </div>
 </div>

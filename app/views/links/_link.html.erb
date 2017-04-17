@@ -1,0 +1,9 @@
+<div id= <%= "link-#{link.id}" %> class= <%= link.read ? "col-md-3 read" : "col-md-3 unread" %> >
+  id: <span class="link-id"><%= link.id %></span><br>
+  title: <span class="link-title"><%= link.title %></span><br> 
+  url: <span class="link-url"><%= link.url %></span><br>
+  status: <span class="read-status"><%= link.read %></span><br> 
+  <button class="mark-as-read"><%= link.read ? "Mark as Unread" : "Mark as Read" %> </button><br>
+  <%= link_to "edit", edit_link_path(link) %><br>
+  <br>
+</div>
