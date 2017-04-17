@@ -1,25 +1,27 @@
-<h1> hey <%= current_user.email %>!</h1>
-<h2> create a link </h2>
-<%= form_for @link do |f| %>
-  <%= f.label :url %>
-  <%= f.text_field :url %> 
+ <div class="container"> 
+  <h1> hey <%= current_user.email %>!</h1>
+  <h2> create a link </h2>
+  <%= form_for @link do |f| %>
+    <%= f.label :url %>
+    <%= f.text_field :url %> 
+    <br>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <br>
+    <%= f.submit "Submit" %>
+    <br>
+  <% end %>
+  <h2> all links </h2>
+  <div id="list-filter">
+    <button id="show-read">SHOW READ</button>
+    <button id="show-unread">SHOW UNREAD</button>
+    <label>Filter by Title / URL
+      <input id="filter-input">
+    </label>
+  </div>
   <br>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
   <br>
-  <%= f.submit "Submit" %>
-  <br>
-<% end %>
-<h2> all links </h2>
-<div id="list-filter">
-  <button id="show-read">SHOW READ</button>
-  <button id="show-unread">SHOW UNREAD</button>
-  <label>Filter by Title / URL
-    <input id="filter-input">
-  </label>
-</div>
-<br>
-<br>
-<div id="link-list">
-  <%= render partial: "/layouts/link", collection: @links %>
+  <div id="link-list">
+    <%= render partial: "/layouts/link", collection: @links %>
+  </div>
 </div>
