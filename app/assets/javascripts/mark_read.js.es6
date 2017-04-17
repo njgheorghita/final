@@ -33,12 +33,6 @@ function updateLink(e) {
   }
 }
 
-// function makeAjaxCall() {
-//   $.ajax({
-//     type: 
-//   })
-// }
-
 function updateReadCss(link) {
   $('#link-' + link.id).children(".read-status").text("true")
   $('#link-' + link.id).children(".mark-as-read").text("Mark as Unread")
