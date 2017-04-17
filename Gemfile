@@ -17,6 +17,7 @@ gem 'sprockets-es6'
 gem 'bcrypt', '~> 3.1.7'
 gem 'validate_url'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'rack-cors'
 
 # gem 'unicorn'
 
@@ -26,7 +27,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rack-cors'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
