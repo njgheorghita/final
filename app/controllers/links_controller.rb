@@ -10,7 +10,9 @@ class LinksController < ApplicationController
     link = current_user.links.new(link_params)
     if link.save
       render partial: "link", locals: {link: link}
-    else
+    elsif link_params["url"] == "" || link_params["title"] == ""
+      render json: {status: 401}
+    else 
       render json: {status: 400}
     end
   end
@@ -25,7 +27,7 @@ class LinksController < ApplicationController
       flash[:success] = "Link Updated!"
       redirect_to root_path
     else
-      flash[:danger] = "Link unsuccessfully updated"
+      flash[:danger] = "link not updated: please enter a valid url"
       redirect_to root_path
     end
   end

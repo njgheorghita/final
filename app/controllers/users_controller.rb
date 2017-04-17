@@ -10,9 +10,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to root_path
     else
-      flash[:danger] = "That email is already in use"
+      if User.find_by(email: user_params["email"])
+        flash[:danger] = "That email is already in use"
+      end
       if user_params["email"] == "" || user_params["password"] == ""
         flash[:more_danger] = "Please fill out all fields"
+      end
+      if params["user"]["password"] != params["user"]["password_confirmation"]
+        flash[:other_danger] = "Please make your passwords match"
       end
       redirect_to new_user_path
     end 
