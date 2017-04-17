@@ -15,7 +15,7 @@ function updateLink(e) {
 
     $.ajax({
       type: "PATCH",
-      url: "/api/v1/links/" + linkId,
+      url: "https://thawing-crag-89948.herokuapp.com/api/v1/links/" + linkId,
       data: { title: linkTitle, url: linkUrl, read: false },
     }).then(updateUnreadCss)
       .fail(displayFailure);
@@ -26,7 +26,6 @@ function updateLink(e) {
 
     $.ajax({
       type: "POST",
-      // url: "http://localhost:3000/api/v1/links",
       url: "https://sheltered-shore-41248.herokuapp.com/api/v1/links",
       data: { url: linkUrl }
     }).then();
