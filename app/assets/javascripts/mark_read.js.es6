@@ -25,6 +25,12 @@ function updateLink(e) {
     var linkUrl =  $link.children('.link-url').text();
 
     $.ajax({
+      type: "POST",
+      url: "http://localhost:3000/api/v1/links",
+      data: { url: linkUrl }
+    }).then();
+
+    $.ajax({
       type: "PATCH",
       url: "/api/v1/links/" + linkId,
       data: { title: linkTitle, url: linkUrl, read: true },

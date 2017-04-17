@@ -119,6 +119,7 @@ GEM
       slop (~> 3.4)
     public_suffix (2.0.4)
     rack (2.0.1)
+    rack-cors (0.4.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack_session_access (0.1.1)
@@ -248,6 +249,7 @@ DEPENDENCIES
   launchy
   pg
   pry
+  rack-cors
   rack_session_access
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_12factor

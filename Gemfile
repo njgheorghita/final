@@ -25,6 +25,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'rack-cors'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
