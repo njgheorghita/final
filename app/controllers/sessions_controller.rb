@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    #flash
+    flash[:danger] = "Successfully logged out"
     redirect_to "/login"
   end
 end

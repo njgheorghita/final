@@ -1,6 +1,8 @@
  <div class="container"> 
   <h1> hey <%= current_user.email %>!</h1>
   <h2> create a link </h2>
+  <h2 id="flash-section"></h2>
+  <h6> must begin with "https://"</h6>
   <%= form_for @link do |f| %>
     <%= f.label :url %>
     <%= f.text_field :url %> 
@@ -8,16 +10,17 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
     <br>
-    <%= f.submit "Submit" %>
+    <%= f.submit "Submit", class: "btn" %>
     <br>
   <% end %>
   <h2> all links </h2>
   <div id="list-filter">
-    <button id="show-read">SHOW READ</button>
-    <button id="show-unread">SHOW UNREAD</button>
     <label>Filter by Title / URL
       <input id="filter-input">
     </label>
+    <br>
+    <button class="btn" id="show-read">SHOW READ</button>
+    <button class="btn" id="show-unread">SHOW UNREAD</button>
   </div>
   <br>
   <br>

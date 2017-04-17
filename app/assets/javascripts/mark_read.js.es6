@@ -44,12 +44,13 @@ function updateReadCss(link) {
   $('#link-' + link.id).children(".read-status").text("true")
   $('#link-' + link.id).children(".mark-as-read").text("Mark as Unread")
   $('#link-' + link.id).css({"text-decoration":"line-through"})
+  $('#link-' + link.id).css({"border":"3px solid green"})
 }
 
 function updateUnreadCss(link) {
   $('#link-' + link.id).children(".read-status").text("false")
   $('#link-' + link.id).children(".mark-as-read").text("Mark as Read")
-  $('#link-' + link.id).css({"text-decoration":"none"})
+  $('#link-' + link.id).css({"border":"3px solid red"})
 }
 
 function displayFailure(failureData){
