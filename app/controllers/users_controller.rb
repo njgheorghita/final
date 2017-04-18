@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       if User.find_by(email: user_params["email"])
         flash[:danger] = "That email is already in use"
       end
-      if user_params["email"] == "" || user_params["password"] == ""
+      if user_params["email"] == "" || user_params["password"] == "" || user_params["password_confirmation"] == ""
         flash[:more_danger] = "Please fill out all fields"
       end
       if params["user"]["password"] != params["user"]["password_confirmation"]
