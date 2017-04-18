@@ -1,10 +1,9 @@
 require "rails_helper"
 
-RSpec.describe "As a visitor", :js => :true do
+RSpec.describe "As a visitor"do
   context "When I go to the home page" do
     it "I should be redirected to a page with sign up or log in" do 
       visit root_path
-      # expect redirect? 
       expect(page).to have_content("Sign Up")
       expect(page).to have_content("Log In")
     end
