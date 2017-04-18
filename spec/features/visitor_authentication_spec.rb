@@ -16,6 +16,7 @@ RSpec.describe "As a visitor"do
       expect(current_path).to eq(new_user_path)
       fill_in "user[email]", with: "BOB"
       fill_in "user[password]", with: "RULES"
+      fill_in "user[password_confirmation]", with: "RULES"
       click_on "Sign Up"
       expect(current_path).to eq(root_path)
       expect(page).to have_content("hey BOB")
@@ -27,6 +28,7 @@ RSpec.describe "As a visitor"do
       visit new_user_path
       fill_in "user[email]", with: user.email
       fill_in "user[password]", with: "SUCKS"
+      fill_in "user[password_confirmation]", with: "SUCKS"
       click_on "Sign Up"
       expect(current_path).to eq(new_user_path)
       expect(page).to have_content("That email is already in use")
@@ -39,5 +41,7 @@ RSpec.describe "As a visitor"do
       expect(current_path).to eq(new_user_path)
       expect(page).to have_content("Please fill out all fields")
     end
+
+    # it "I should not be able to create an account without matching passwords"
   end
 end

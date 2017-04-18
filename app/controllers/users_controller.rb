@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         flash[:more_danger] = "Please fill out all fields"
       end
       if params["user"]["password"] != params["user"]["password_confirmation"]
-        flash[:other_danger] = "Please make your passwords match"
+        flash[:other_danger] = "Please make sure passwords match"
       end
       redirect_to new_user_path
     end 
@@ -26,6 +26,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end
