@@ -42,6 +42,14 @@ RSpec.describe "As a visitor"do
       expect(page).to have_content("Please fill out all fields")
     end
 
-    # it "I should not be able to create an account without matching passwords"
+    it "I should not be able to create an account without matching passwords" do 
+      visit new_user_path
+      fill_in "user[email]", with: "BOB"
+      fill_in "user[password]", with: "RULES"
+      fill_in "user[password_confirmation]", with: "SUCKS"
+      click_on "Sign Up"
+      expect(current_path).to eq(new_user_path)
+      expect(page).to have_content("Please make sure passwords match")
+    end
   end
 end
