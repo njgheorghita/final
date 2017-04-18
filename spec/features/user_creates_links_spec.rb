@@ -19,7 +19,6 @@ RSpec.describe "As a registered user", js: true do
       fill_in "link[url]", with: "https://www.google.com"
       fill_in "link[title]", with: "search"
       click_on "Submit"
-      expect(current_path).to eq(root_path)
       expect(page).to have_content("url: https://www.google.com")
       expect(page).to have_content("title: search")
       expect(page).to have_content("status: false")
@@ -30,8 +29,6 @@ RSpec.describe "As a registered user", js: true do
       fill_in "link[url]", with: "www.google.com"
       fill_in "link[title]", with: "search"
       click_on "Submit"
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content("Invalid Link")
       expect(page).not_to have_content("www.google.com")
     end
 
