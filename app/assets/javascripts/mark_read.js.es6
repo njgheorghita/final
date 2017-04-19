@@ -54,6 +54,7 @@ function updateUnreadCss(link) {
   $('#link-' + link.id).children(".read-status").text("false")
   $('#link-' + link.id).children(".mark-as-read").text("Mark as Read")
   $('#link-' + link.id).css({"border":"3px solid red"})
+  $('#link-' + link.id).css({"text-decoration":"none"})
 }
 
 function displayFailure(failureData){
