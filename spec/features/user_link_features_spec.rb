@@ -33,11 +33,25 @@ RSpec.describe "As a registered user", js: true do
       expect(page).to have_content("status: true")
     end
 
-    it "I can filter through my lists" do 
+    it "I can filter via search input through my lists" do 
       visit root_path
       expect(page).to have_content("search")
       fill_in "filter-input", with: "fdsa"
       expect(page).not_to have_content("search")
+    end
+
+    it "I can filter via read button through my lists" do 
+      visit root_path
+      expect(page).to have_content("search")
+      click_on "SHOW READ"
+      expect(page).not_to have_content("search")
+    end
+
+    it "I can filter via unread button through my lists" do 
+      visit root_path
+      expect(page).to have_content("search")
+      click_on "SHOW UNREAD"
+      expect(page).to have_content("search")
     end
   end
 end
