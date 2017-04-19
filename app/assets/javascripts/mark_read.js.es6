@@ -17,27 +17,28 @@ function updateLink(e) {
       type: "PATCH",
       // url: "https://thawing-crag-89948.herokuapp.com/api/v1/links/" + linkId,
       url: "/api/v1/links/" + linkId,
-      data: { title: linkTitle, url: linkUrl, read: false },
+      data: { title: linkTitle, url: linkUrl, read: false, tag: "" },
     }).then(updateUnreadCss)
       .fail(displayFailure);
   } else {
     var linkId = parseInt($link.children('.link-id').text());
     var linkTitle = $link.children('.link-title').text();
     var linkUrl =  $link.children('.link-url').text();
-    var linkTag = nil;
+    var linkTag = "";
 
     $.ajax({
       type: "POST",
       // url: "https://sheltered-shore-41248.herokuapp.com/api/v1/links",
       url: "http://localhost:3001/api/v1/links/",
+      async: false,
       data: { url: linkUrl }
     }).then((response) => {
-      linkTag = response.tag;
+      linkTag = response.tag
     });
-
+    debugger;
     $.ajax({
       type: "PATCH",
-      // url: "https://sheltered-shore-41248.herokuapp.com/api/v1/links/" + linkId,
+      // url: "https://thawing-crag-89948.herokuapp.com/api/v1/links/" + linkId,
       url: "/api/v1/links/" + linkId,
       data: { title: linkTitle, url: linkUrl, read: true , tag: linkTag},
     }).then(updateReadCss)

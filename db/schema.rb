@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170404160943) do
   create_table "links", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
+    t.string   "tag"
     t.boolean  "read",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"

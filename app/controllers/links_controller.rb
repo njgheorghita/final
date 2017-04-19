@@ -22,7 +22,7 @@ class LinksController < ApplicationController
   end
 
   def update
-    @link = Link.find(params[:id])
+     @link = Link.find(params[:id])
     if @link.update(link_params)
       flash[:success] = "Link Updated!"
       redirect_to root_path
@@ -35,6 +35,6 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:url, :title)
+    params.require(:link).permit(:url, :title, :tag)
   end
 end
