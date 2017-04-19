@@ -26,11 +26,10 @@ RSpec.describe "As a registered user", js: true do
 
     it "I can mark a link as read" do 
       visit root_path
-      expect(page).to have_content("status: false")
       expect(page).to have_content("Mark as Read")
       click_on "Mark as Read"
       expect(current_path).to eq(root_path)
-      expect(page).to have_content("status: true")
+      expect(page).to have_content("status: false")
     end
 
     it "I can filter via search input through my lists" do 
